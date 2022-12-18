@@ -1,0 +1,81 @@
+body{
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        rgb(138, 143, 165) , 
+        rgb(42, 111, 143) 50%,
+        rgb(61, 192, 164) 50%, 
+        rgb(23, 124, 102) 100%
+        )
+    0 100% no-repeat;
+}
+
+#menu{
+    background-color: white;
+    width: 500px;
+    height: 350px;
+    border-radius: 50px;
+    box-shadow: 0 15px 50px black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+#dices{
+
+    white-space: nowrap;
+}
+#dices li{
+    display: inline-block;
+}
+
+img.dice
+{
+    width: 173px;
+    height: 173px;
+    object-fit: none;
+    object-position: 6.3% 12%;
+    border: 10px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    transition: 0.5s;
+    transform: scale(0.75);
+}
+
+img.dice:hover{
+    transform: scale(0.6);
+    border-color: rgb(119, 119, 119);
+}
+
+#buttons {
+    white-space: nowrap;
+    left: 21%;
+    position: relative;
+    list-style: none;
+}
+#buttons li{
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+    user-select: none;
+}
+
+#buttons li:hover{
+    background-color: rgb(78, 90, 141);
+    color: black;
+    transform: scale(0.8);
+}
+
+#output{
+    text-align: center;
+}
