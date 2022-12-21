@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+/* 
+İnce: font-family: 'Oxygen', sans-serif;
+Orta: 
+Kalın: 
+*/
+
+*{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+}
+
 body{
     height: 100vh;
     background: linear-gradient(
@@ -41,6 +54,7 @@ img.dice
     padding: 10px;
     transition: 0.5s;
     transform: scale(0.75);
+    -webkit-user-drag: none;
 }
 
 img.dice:hover{
@@ -50,7 +64,7 @@ img.dice:hover{
 
 #buttons {
     white-space: nowrap;
-    left: 21%;
+    left: 32%;
     position: relative;
     list-style: none;
 }

@@ -22,16 +22,94 @@ function random(n){
 var dice1side = 1;
 var dice2side = 1;
 
-roll_button.addEventListener("click", rollDice);
+//Çıktı bölgesinde yazdırılacak yazılar
 
-function rollDice(){
-    dice1side = random(6);
-    dice2side = random(6);
-    console.log("Dice 1: " + dice1side);
-    console.log("Dice 2: " + dice2side);
-
-    dice1.style.objectPosition = roll_sides[dice1side - 1];
-    dice2.style.objectPosition = roll_sides[dice2side - 1];
-
+function printOutput(type = 0){
+if (type == 0)
     output.innerText = "Toplam Sonuç: " + (dice1side + dice2side);
-};
+else if (type == 1)
+    output.innerText = "İlk Sonuç: " + dice1side + ' - İlk zarı yeniden at';
+else if (type == 2)
+    output.innerText = "İkinci Sonuç: " + dice2side + ' - İkinci zarı yeniden at';
+else if (type == 3)
+    output.innerText = "Bu tuşa bastığınızda zarlar yeniden atılır";
+}
+
+function roll(dice){
+if (dice == 1)
+    {
+        const old_side = dice1side;
+        do{dice1side = random(6);}while (dice1side == old_side); 
+        console.log("Dice 1: " + dice1side); 
+        dice1.style.objectPosition = roll_sides[dice1side - 1]
+    }
+
+else if (dice == 2)
+    {
+    const old_side = dice2side;
+    do{dice2side = random(6);}while (dice2side == old_side);
+    console.log("Dice 2: " + dice2side); 
+    dice2.style.objectPosition = roll_sides[dice2side - 1]
+    }
+
+}
+
+//      Zar At tuşuna basılırsa
+
+roll_button.addEventListener("click", function(){
+    roll(1);
+    roll(2);
+
+    printOutput();
+});
+
+//      Zar 1'e basılırsa
+
+dice1.addEventListener("click", function(){
+    roll(1);
+
+    printOutput(1);
+});
+
+//      Zar 2'ye basılırsa
+
+dice2.addEventListener("click", function(){
+    roll(2);
+
+    printOutput(2);
+});
+
+//      Zar 1'in üsüne mouse gelirse
+
+dice1.addEventListener("mouseenter", function(){
+    printOutput(1);
+});
+
+dice1.addEventListener("mouseleave", function(){
+    printOutput(0);
+});
+
+//      Zar 2'nin üsüne mouse gelirse
+
+dice2.addEventListener("mouseenter", function(){
+    printOutput(2);
+});
+
+dice2.addEventListener("mouseleave", function(){
+    printOutput(0);
+});
+
+//      Zar At tuşunun üstüne zar gelirse
+
+roll_button.addEventListener("mouseenter", function(){
+    printOutput(3);
+});
+
+roll_button.addEventListener("mouseleave", function(){
+    printOutput(0);
+});
+
+roll(1);
+roll(2);
+
+printOutput();
